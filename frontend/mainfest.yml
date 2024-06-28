@@ -24,7 +24,7 @@ spec:
       labels:
         component: frontend
         project: expense
-        tier: app
+        tier: web
     spec:
       containers:
       - name: frontend
