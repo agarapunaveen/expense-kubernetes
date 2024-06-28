@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  # these lables belongs to replicaset resources
+  labels:
+    component: mysql
+    project: expense
+    tier: db
+    # how many replicas required
+spec:
+  replicas: 3
+  # which pod you want replica
+  selector:
+    matchLabels:
+      component: mysql
+      project: expense
+      tier: db
+# pod definition
+  template:
+    metadata:
+    # selector labels must match below labels
+      labels:
+        component: mysql
+        project: expense
+        tier: db
+    spec:
+      containers:
+      - name: mysql
+        image: joindevops/mysql:v1.0
