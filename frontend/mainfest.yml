@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8,7 +7,7 @@ metadata:
   labels:
     component: frontend
     project: expense
-    tier: app
+    tier: web
     # how many replicas required
 spec:
   replicas: 3
@@ -17,7 +16,7 @@ spec:
     matchLabels:
       component: frontend
       project: expense
-      tier: app
+      tier: web
 # pod definition
   template:
     metadata:
@@ -30,9 +29,6 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:v1.0
-        # envFrom:
-        # - configMapRef:
-        #    name: frontend
 
 ---
 
@@ -46,7 +42,7 @@ type: LoadBalancer
  selector:
   component: frontend
   project: expense
-  tier: app
+  tier: web
  ports:
   - protocol: TCP
     port: 80
