@@ -163,6 +163,6 @@ metadata:
   name: my-tgb
 spec:
   serviceRef:
-    name: awesome-service # route traffic to the awesome-service
+    name: frontend-service # route traffic to the awesome-service
     port: 80
-  targetGroupARN: <arn:aws:elasticloadbalancing:us-east-1:445343720788:targetgroup/expense-dev-frontend/5918f346176f8df1
+  targetGroupARN: arn:aws:elasticloadbalancing:us-east-1:445343720788:targetgroup/expense-dev-frontend/575bbbe21a384128
